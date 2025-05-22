@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Teapot Collection (Mirador)</title>
+    <link rel="stylesheet" href="https://unpkg.com/mirador@3.4.0/dist/mirador.min.css">
+    <style>
+        /* Make Mirador fill the entire page */
+        html, body, #mirador-viewer {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+    </style>
+</head>
+<body>
+    <div id="mirador-viewer"></div>
+
+    <script src="https://unpkg.com/mirador@3.4.0/dist/mirador.min.js"></script>
+
+    <script type="text/javascript">
+        // --- YOUR IIIF COLLECTION MANIFEST URL ---
+        // IMPORTANT: This URL should point to the manifest served by your local HTTP server.
+        // It assumes you have run the Python script and are serving the 'output_first_subset' directory.
+        // If you are using the original 'my-small-collection.json' directly from GitHub,
+        // ensure GitHub Pages is enabled for your repository and use the correct raw URL.
+        const MY_IIIF_COLLECTION_MANIFEST_URL = 'https://raw.githubusercontent.com/GuacamoleKoala/iiif-test/refs/heads/main/my-collection.json';
+
+        // Initialize Mirador viewer
+        Mirador.viewer({
+            id: 'mirador-viewer', // ID of the HTML element where Mirador will be rendered
+
+            // Add your collection to Mirador's catalog. This is how Mirador knows about your collection.
+            catalog: [{
+                manifestId: MY_IIIF_COLLECTION_MANIFEST_URL,
+                provider: 'My Teapot Collection' // Custom label for your collection
+            }],
+            // Workspace settings for collections
+            workspace: {
+                type: 'mosaic', // 'mosaic' allows multiple windows; 'single' would only show one item at a time.
+            },
+            window: {
+                // For collections, starting with the table of contents is usually best.
+                defaultSidebarPanel: 'tableOfContents',
+                sideBarOpenByDefault: true,
+                panels: {
+                    info: true,
+                    toc: true, // Table of Contents panel is crucial for collections
+                    annotations: true,
+                    search: true
+                }
+            },
+            // Enable debugging to see Mirador's internal logs in the browser console.
+            // This is CRUCIAL for identifying any issues with your manifests.
+            debug: true
+        });
+    </script>
+</body>
+</html>
