@@ -1,5 +1,8 @@
 # INFO ON FOLDER 'MANUAL'
 
+This folder contains a manual of how to reproduce this (or a similar) project. 
+In four chapter I explain different aspects, techniques, software, and so on.
+
 **Chapter 1**: ManualEuropeanaTeapot_Chapter1_API.ipynb
 
 The first chapter handles on how to retrieve metadata through Europeana API 
