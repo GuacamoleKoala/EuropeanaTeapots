@@ -1,13 +1,17 @@
-# INFO ON PROJECT 'EUROPEANA TEAPOTS'
+# INFO ON REPOSITORY 'EUROPEANA TEAPOTS'
+
+**Introduction to the project**
 
 This repository is created by Jenske Verhamme.
 It has been made for a project regarding the course 'Data for Heritage Collections' by professor Fred Truyen.
 This course is part of the postgraduate degree in Cultural Heritage: digital transformation at Kuleuven.
 
-This project experiments with data scraping from Europeana via API and Python scripting.
-Secondly, it experiments with cleaning and refining data in Openrefine and Excel
-Thirdly, it experiments with visualisations in Tableau by making sheets and dashboards of the cleaned dataset
+The project experiments with data scraping from Europeana via API and Python scripting.
+Secondly, it experiments with cleaning and refining data in Openrefine and Excel.
+Thirdly, it experiments with visualisations in Tableau by making sheets and dashboards of the cleaned dataset.
 Lastly, it looks into IIIF and visualising the images of the dataset in Mirador viewer via HTML scripting.
+
+**Overview of repository**
 
 In this readme I will give an overview of the different documents that can be found in the repository.
 
