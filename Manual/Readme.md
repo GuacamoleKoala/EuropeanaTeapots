@@ -30,5 +30,11 @@ This can be usefull when you want to follow the developments of this project.
 In chapter four I also have a look at the use of IIIF viewers for our dataset and I look for a solution to show this dataset with a viewer. 
 Here I have a look at writing a HTML script to load the collection into a Mirador viewer.
 
+**PDF version**
+
+I also provided a pdf version of the chapter, instead of only the notebook version. In Google Colab it is not always possible to properly convert to pdf. Therefore, I used the Ploomber tool to make sure the conversion to pdf was clean and complete.
+
+**Note**
+
 Most of the programming/scripting in this project is realized with the help of generative AI ([Gemini 2.0 Flash](https://gemini.google.com/app?hl=nl-BE) 
 and [Chatgpt 4.0](https://chatgpt.com/)).
