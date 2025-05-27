@@ -1,6 +1,6 @@
 # INFO ON FOLDER 'MANUAL'
 
-**Chapter 1**
+**Chapter 1**: ManualEuropeanaTeapot_Chapter1_API.ipynb
 
 The first chapter handles on how to retrieve metadata through Europeana API 
 with the use of [Google Collab](https://colab.research.google.com/) or [Jupyter Notebook](https://jupyter.org/), and [Python](https://www.python.org/) language. 
@@ -8,19 +8,19 @@ The goal here is to write a script that search for teapots (f.e. through the que
 but also to improve the script by making it look for translations (f.e. 'theepot') and spelling variant (f.e. 'tea pot'). 
 In the end I also want to make improvements to the script to look for specific forms of metadata. 
 
-**Chapter 2**
+**Chapter 2**: ManualEuropeanaTeapots_Chapter2_DataRefinement.ipynb
 
 This dataset can then be further refined and can be further analyzed. 
 Therefore, in the second chapter I explain how I cleaned and enriched the dataset with software OpenRefine. 
 The goal here is to use some techniques that are commonly used in OpenRefine and to achieve a dataset about teapots that is relatively clean. 
 This is important for the visualisation and analysis in chapter three.
 
-**Chapter 3**
+**Chapter 3**: ManualEuropeanaTeapots_Chapter3_AnalysisAndVisualisation.ipynb
 
 In chapter three I look at how to calculate some extra parameters with the use of Excel. 
 Next I visualize the data in the software Tableau Public. I create some sheets and some dashboards with the data. 
 
-**Chapter 4**
+**Chapter 4**: ManualEuropeanaTeapots_Chapter4_IIIF_GITHUB.ipynb
 
 In chapter four I give an overview of what I did in GITHUB to upload the project and I also give an overview of what files can be found there. 
 This can be usefull when you want to follow the developments of this project. 
