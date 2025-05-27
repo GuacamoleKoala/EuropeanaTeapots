@@ -1,4 +1,5 @@
-# EuropeanaTeapots
+# INFO ON PROJECT 'EUROPEANA TEAPOTS'
+
 This repository is created by Jenske Verhamme.
 It has been made for a project regarding the course 'Data for Heritage Collections' by professor Fred Truyen.
 This course is part of the postgraduate degree in Cultural Heritage: digital transformation at Kuleuven.
