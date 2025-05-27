@@ -23,7 +23,7 @@ Next, I added the final cleaned dataset with the help of Excel and OpenRefine. I
 I also added the data extract from Tableau. This dataset is based on the previous one, but in Tableau I made some extra adjustments
 Next I added the visualisations in Tableau.
 
-needs to be added:
+needs to be added: 
 
 dataset from script 1
 dataset from script 2
