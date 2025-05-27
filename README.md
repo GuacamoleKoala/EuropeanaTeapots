@@ -16,6 +16,14 @@ The content of this project is on the topic of teapots.
 
 In this readme I will give an overview of the different documents that can be found in the repository.
 
+1) folder 'Datasets' 
+
+2) folder 'IIIFViewer'
+	
+3) Manual
+	
+4) Visualisations
+
 First of all I wrote a manual that documents the progress of this project.
 
 Secondly, I added the first full dataset I was able to extract in Chapter one.
