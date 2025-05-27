@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/3/context.json",
-  "id": "https://guacamolekoala.github.io/iiif-test/my-collection.json",
+  "id": "https://guacamolekoala.github.io/EuropeanaTeapots/IIIFCollectionURLS.json",
   "type": "Collection",
   "label": {
     "en": [
