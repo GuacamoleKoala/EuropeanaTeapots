@@ -10,6 +10,7 @@ The project experiments with data scraping from Europeana via API and Python scr
 Secondly, it experiments with cleaning and refining data in Openrefine and Excel.
 Thirdly, it experiments with visualisations in Tableau by making sheets and dashboards of the cleaned dataset.
 Lastly, it looks into IIIF and visualising the images of the dataset in Mirador viewer via HTML scripting.
+The content of our project will be on the topic of teapots.
 
 **Overview of repository**
 
