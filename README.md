@@ -16,26 +16,17 @@ The content of this project is on the topic of teapots.
 
 In this readme I will give an overview of the different documents that can be found in the repository.
 
-1) folder 'Datasets' 
+1) folder 'Datasets': here you can find all the datasets regarding the project
 
-2) folder 'IIIFViewer'
+2) folder 'IIIFViewer': here you can find all files regarding the part about 'IIIF' viewers.
 	
-3) Manual
+3) folder Manual: here you can find all steps that were made during the project.
+The manual is divided into four chapters: 1) API and Python, 2) OpenRefine, 3) Excel/Tableau, 4) HTML, IIIF, Mirador
 	
-4) Visualisations
+4) folder Visualisations: here you can find all the visualisations that are made in Tableau.
 
-First of all I wrote a manual that documents the progress of this project.
-
-Secondly, I added the first full dataset I was able to extract in Chapter one.
-
-Next, I added the final cleaned dataset with the help of Excel and OpenRefine. I also added the project in OpenRefine.
-I also added the data extract from Tableau. This dataset is based on the previous one, but in Tableau I made some extra adjustments
-Next I added the visualisations in Tableau.
-
-needs to be added: 
-
-dataset from script 1
-dataset from script 2
+5) folder Examfile: Here you find the examfile that is the culmination of this project.
+This project and exam are for a course in the postgraduat in Cultural Heritage.
 any other datasets extracted
 dataset from tableau.
 
