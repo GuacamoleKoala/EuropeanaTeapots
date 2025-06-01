@@ -27,7 +27,3 @@ The manual is divided into four chapters: 1) API and Python, 2) OpenRefine, 3) E
 
 5) folder Examfile: Here you find the examfile that is the culmination of this project.
 This project and exam are for a course in the postgraduat in Cultural Heritage.
-any other datasets extracted
-dataset from tableau.
-
-pdf versions of the chapters
