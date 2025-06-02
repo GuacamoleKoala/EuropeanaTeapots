@@ -1,1 +1,3 @@
-this is a readme
+# Info for folder 'Visualisations'
+
+In this folder 
