@@ -3,7 +3,7 @@
 **Introduction to the project**
 
 This repository is created by Jenske Verhamme.
-It has been made for a project regarding the course 'Data for Heritage Collections' by professor Fred Truyen.
+It has been made for a project regarding the courses Data for Heritage Collections: Exercise [F0CG6a] and Infrastructure for Digital Collections [F0CG7a] 2025, given by professor Fred Truyen.
 This course is part of the postgraduate degree in Cultural Heritage: digital transformation at Kuleuven.
 
 The project experiments with data scraping from Europeana via API and Python scripting.
