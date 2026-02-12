@@ -3,260 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Europeana Teapot Project | Jenske Verhamme</title>
+    <title>Teapot Data Lab | Jenske Verhamme</title>
     <style>
         :root {
             --eu-blue: #0080ff;
+            --eu-cyan: #00f2ff;
             --eu-black: #1a1a1a;
-            --eu-grey: #f2f2f2;
-            --accent-pink: #ff4d94; /* Voor de speelse touch */
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-            background-color: #fff;
-            color: var(--eu-black);
-            margin: 0;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            margin: 0; background: #fff; color: var(--eu-black);
+            overflow-x: hidden;
         }
 
-        /* --- Europeana Style Header --- */
+        /* --- Header: De Lab Vibe --- */
         header {
-            padding: 60px 40px;
-            border-bottom: 1px solid #ddd;
-            background: linear-gradient(135deg, #fff 60%, var(--eu-grey) 100%);
-        }
-
-        .breadcrumb {
-            font-size: 0.85rem;
-            color: var(--eu-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin: 0;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
-
-        .project-meta {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            font-weight: 600;
-        }
-
-        /* --- Dashboard Sectie --- */
-        .dashboard-container {
-            max-width: 1300px;
-            margin: 60px auto;
-            padding: 0 40px;
-        }
-
-        .viz-frame {
-            background: var(--eu-grey);
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            aspect-ratio: 16 / 9;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-
-        /* --- De Kaarten (Europeana Grid) --- */
-        .content-grid {
-            max-width: 1300px;
-            margin: 80px auto;
-            padding: 0 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .item-card {
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid #eee;
-            transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .item-card:hover {
-            border-color: var(--eu-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,128,255,0.1);
-        }
-
-        .card-img {
-            height: 250px;
-            background-color: var(--eu-grey);
-            background-size: cover;
-            background-position: center;
+            padding: 100px 40px;
+            background: var(--eu-black);
+            color: #fff;
+            text-align: center;
             position: relative;
         }
 
-        .card-img::after {
-            content: "IIIF";
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: var(--eu-blue);
-            color: #fff;
-            font-size: 0.6rem;
-            padding: 2px 6px;
-            font-weight: 900;
+        .eu-logo-link {
+            position: absolute; top: 30px; right: 40px;
+            transition: transform 0.3s;
+        }
+        .eu-logo-link:hover { transform: scale(1.1); }
+        .eu-logo-link img { width: 120px; filter: brightness(0) invert(1); }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin: 0; font-weight: 900; letter-spacing: -3px;
+            background: linear-gradient(to right, #fff, var(--eu-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .card-content {
-            padding: 25px;
+        .project-intro {
+            max-width: 700px; margin: 20px auto;
+            font-size: 1.2rem; opacity: 0.8; line-height: 1.6;
+        }
+
+        /* --- Activerende Sectie --- */
+        .call-to-action {
+            background: var(--eu-blue); color: #fff;
+            padding: 40px; text-align: center;
+            transform: skewY(-2deg); margin-top: -30px;
+        }
+        .call-to-action h2 { 
+            transform: skewY(2deg); margin: 0; 
+            font-size: 2rem; text-transform: uppercase; 
+        }
+
+        /* --- Project Fasen Grid --- */
+        .lab-grid {
+            max-width: 1200px; margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .lab-card {
+            border: 6px solid var(--eu-black);
+            padding: 40px; position: relative;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background: #fff;
+            text-decoration: none; color: inherit;
         }
 
-        .card-content h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-            color: var(--eu-blue);
+        .lab-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 20px 20px 0px var(--eu-blue);
         }
 
-        .card-content p {
-            font-size: 0.9rem;
-            margin: 0;
-            color: #666;
+        .lab-card h3 {
+            font-size: 2rem; text-transform: uppercase;
+            margin-top: 0; border-bottom: 4px solid var(--eu-blue);
+            display: inline-block;
         }
 
-        /* --- Research & PDF Section --- */
-        .research-strip {
-            background: var(--eu-black);
-            color: #fff;
-            padding: 80px 40px;
-            margin: 100px 0;
+        .card-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+        /* --- Specifieke Secties --- */
+        .api-section { border-color: #f39c12; }
+        .clean-section { border-color: #2ecc71; }
+        .tableau-section { border-color: #9b59b6; }
+        .iiif-section { border-color: var(--eu-blue); }
+
+        /* --- Dashboard Embed Area --- */
+        .viz-showcase {
+            background: var(--eu-grey);
+            margin: 100px 0; padding: 60px 20px;
+            text-align: center;
+        }
+        .dashboard-placeholder {
+            max-width: 1000px; margin: 0 auto;
+            aspect-ratio: 16/9; background: #eee;
+            border: 2px dashed #ccc; display: flex;
+            align-items: center; justify-content: center;
         }
 
-        .strip-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 60px;
-            align-items: center;
+        /* --- Footer & GitHub --- */
+        .github-banner {
+            background: #000; color: #fff;
+            padding: 80px 40px; text-align: center;
         }
-
-        .pdf-link {
-            color: #fff;
-            text-decoration: none;
-            border: 2px solid #fff;
-            padding: 15px 30px;
-            font-weight: 700;
-            text-transform: uppercase;
+        .btn-github {
+            display: inline-block; padding: 20px 40px;
+            background: #fff; color: #000;
+            text-decoration: none; font-weight: 900;
+            text-transform: uppercase; margin-top: 20px;
             transition: 0.3s;
         }
+        .btn-github:hover { background: var(--eu-cyan); transform: scale(1.1); }
 
-        .pdf-link:hover {
-            background: #fff;
-            color: var(--eu-black);
-        }
-
-        footer {
-            padding: 80px 40px;
-            text-align: center;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-        }
-
-        .teapot-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        @media (max-width: 800px) {
-            .strip-inner { flex-direction: column; text-align: center; }
+        @media (max-width: 850px) {
+            .lab-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="breadcrumb">Collections / Data Visualization / IIIF</div>
-        <h1>The Europeana<br>Teapot Project.</h1>
-        <div class="project-meta">
-            <span>[ API Extraction ]</span>
-            <span>[ Tableau Analytics ]</span>
-            <span>[ Cultural Heritage ]</span>
-        </div>
+        <a href="https://www.europeana.eu/nl" target="_blank" class="eu-logo-link">
+            <img src="https://pro.europeana.eu/assets/img/europeana-logo.svg" alt="Europeana Logo">
+        </a>
+        <h1>Teapot Lab</h1>
+        <p class="project-intro">
+            Een data-gedreven ontdekkingsreis door de keramiekcollecties van Europeana. 
+            Van brute API-extractie tot verfijnde IIIF-visualisaties.
+        </p>
     </header>
 
-    <main>
-        <section class="dashboard-container">
-            <h2 style="text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 30px;">
-                Main Data Dashboard
-            </h2>
-            <div class="viz-frame">
-                <p style="color: #999; font-style: italic;">Interactive Tableau Dashboard Loading...</p>
-                </div>
-            <p style="max-width: 800px; font-size: 1.1rem;">
-                Dit project verkent de visuele en geografische verspreiding van "theepotten" binnen de Europeana-collecties. Door gebruik te maken van de Europeana API en Python, hebben we data geëxtraheerd die de evolutie van vorm en decoratie over verschillende regio's heen in kaart brengt.
-            </p>
-        </section>
+    <section class="call-to-action">
+        <h2>Ontdek de theepotten collectie van Europeana →</h2>
+    </section>
 
-        <section class="content-grid">
-            
-            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Data" class="item-card">
-                <div class="card-img" style="background-image: url('https://www.europeana.eu/portal/en/record/9200365/BibliographicResource_3000135613388.html');"></div>
-                <div class="card-content">
-                    <h3>Raw Data Extraction</h3>
-                    <p>De Python scripts gebruikt voor het scrapen van de Europeana API en het filteren van JSON-outputs naar bruikbare CSV-data.</p>
-                </div>
-            </a>
+    <main class="lab-grid">
+        
+        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Scripts" class="lab-card api-section">
+            <span class="card-icon">⚙️</span>
+            <h3>API Scripting</h3>
+            <p>Python-powered extractie. We 'scrapen' de Europeana API om duizenden theepot-records en hun metadata te oogsten voor analyse.</p>
+        </a>
 
-            <a href="#" class="item-card">
-                <div class="card-img" style="background-image: url('media/teapot-analysis.jpg');"></div>
-                <div class="card-content">
-                    <h3>Spatial Analysis</h3>
-                    <p>Visualisaties van de herkomstlanden van de collectiestukken. Hoe de theecultuur zich vertaalt in museale data.</p>
-                </div>
-            </a>
+        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Data" class="lab-card clean-section">
+            <span class="card-icon">🧼</span>
+            <h3>Data Cleaning</h3>
+            <p>Ruwe data is zelden perfect. Met OpenRefine hebben we de metadata gestandaardiseerd, datums gefixed en geografische tags opgeschoond.</p>
+        </a>
 
-            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Visualisaties" class="item-card">
-                <div class="card-img" style="background-image: url('media/tableau-preview.jpg');"></div>
-                <div class="card-content">
-                    <h3>Tableau Workbook</h3>
-                    <p>Toegang tot de volledige werkbladen en dashboards voor diepgaande interactieve verkenning van de teapot-sets.</p>
-                </div>
-            </a>
+        <a href="#viz" class="lab-card tableau-section">
+            <span class="card-icon">📊</span>
+            <h3>Tableau Analytics</h3>
+            <p>Interactieve dashboards die trends in vorm, tijd en herkomst visualiseren. De theepot als datapunt in de kunstgeschiedenis.</p>
+        </a>
 
-        </section>
-
-        <section class="research-strip">
-            <div class="strip-inner">
-                <div style="flex: 1;">
-                    <h2 style="font-size: 2.5rem; margin: 0 0 20px 0;">Methodologie & Onderzoek.</h2>
-                    <p style="opacity: 0.8; font-size: 1.1rem;">
-                        Lees de volledige documentatie over hoe de IIIF-viewers zijn geïntegreerd en welke metadata-mapping strategieën zijn toegepast voor dit project.
-                    </p>
-                </div>
-                <div>
-                    <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/raw/main/Documentatie/Project_Verslag.pdf" class="pdf-link">
-                        Download PDF Verslag
-                    </a>
-                </div>
-            </div>
-        </section>
+        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Viewer" class="lab-card iiif-section">
+            <span class="card-icon">🔍</span>
+            <h3>IIIF Viewer</h3>
+            <p>Ervaar de collectie in ultra-hoge resolutie. Onze viewer maakt gebruik van IIIF-manifesten voor een naadloze zoom-ervaring.</p>
+        </a>
 
     </main>
 
-    <footer>
-        <span class="teapot-icon">🫖</span>
-        <div style="font-weight: 800; text-transform: uppercase;">Jenske Verhamme</div>
-        <p style="color: #999;">Data & ICT Project - 2026<br>Gerealiseerd met Europeana API & Tableau</p>
+    <section class="viz-showcase" id="viz">
+        <h2>Interactief Dashboard</h2>
+        <div class="dashboard-placeholder">
+            <p>Tableau Dashboard Live Preview</p>
+        </div>
+    </section>
+
+    <section class="github-banner">
+        <h2>Open Source & Gedocumenteerd</h2>
+        <p>Alle scripts, PDF-verslagen en data-sets zijn volledig raadpleegbaar op mijn GitHub repository.</p>
+        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" class="btn-github">Bekijk op GitHub</a>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; font-family: monospace;">
+        JENSKE VERHAMME // 2026 // BUILT WITH ❤️ FOR HERITAGE DATA
     </footer>
 
 </body>
