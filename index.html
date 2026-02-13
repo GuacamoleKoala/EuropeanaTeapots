@@ -4,188 +4,350 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teapot Data Lab | Jenske Verhamme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --eu-blue: #0080ff;
-            --eu-cyan: #00f2ff;
-            --eu-black: #1a1a1a;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* Europeana Kleuren */
+            --eu-primary: #0080ff; 
+            --eu-dark: #0b1e45;
+            --eu-light: #f0f7ff;
+            
+            /* Lab Kleuren */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            
+            /* Shadows & Glass */
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 128, 255, 0.15);
         }
 
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            margin: 0; background: #fff; color: var(--eu-black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- Header: De Lab Vibe --- */
+        /* --- TYPOGRAPHY UTILS --- */
+        h1, h2, h3 { margin: 0; }
+        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .text-blue { color: var(--eu-primary); }
+        
+        /* --- HEADER / HERO SECTION --- */
         header {
-            padding: 100px 40px;
-            background: var(--eu-black);
-            color: #fff;
+            background: linear-gradient(180deg, var(--white) 0%, var(--eu-light) 100%);
+            padding: 100px 20px 60px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0,128,255,0.1);
         }
 
-        .eu-logo-link {
-            position: absolute; top: 30px; right: 40px;
-            transition: transform 0.3s;
+        /* Achtergrond decoratie */
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 300px; height: 300px;
+            background: var(--eu-primary);
+            filter: blur(120px);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
         }
-        .eu-logo-link:hover { transform: scale(1.1); }
-        .eu-logo-link img { width: 120px; filter: brightness(0) invert(1); }
+
+        .eu-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 128, 255, 0.1);
+            color: var(--eu-primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
 
         h1 {
-            font-size: clamp(3rem, 10vw, 6rem);
-            margin: 0; font-weight: 900; letter-spacing: -3px;
-            background: linear-gradient(to right, #fff, var(--eu-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--eu-dark);
+            position: relative; z-index: 1;
         }
 
-        .project-intro {
-            max-width: 700px; margin: 20px auto;
-            font-size: 1.2rem; opacity: 0.8; line-height: 1.6;
+        .intro-text {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            position: relative; z-index: 1;
         }
 
-        /* --- Activerende Sectie --- */
-        .call-to-action {
-            background: var(--eu-blue); color: #fff;
-            padding: 40px; text-align: center;
-            transform: skewY(-2deg); margin-top: -30px;
-        }
-        .call-to-action h2 { 
-            transform: skewY(2deg); margin: 0; 
-            font-size: 2rem; text-transform: uppercase; 
-        }
-
-        /* --- Project Fasen Grid --- */
-        .lab-grid {
-            max-width: 1200px; margin: 80px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        /* --- STATS BAR --- */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
             gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        .stat-item { text-align: center; }
+        .stat-num { display: block; font-size: 1.5rem; font-weight: 800; color: var(--eu-primary); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
-        .lab-card {
-            border: 6px solid var(--eu-black);
-            padding: 40px; position: relative;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: #fff;
-            text-decoration: none; color: inherit;
-        }
-
-        .lab-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 20px 20px 0px var(--eu-blue);
-        }
-
-        .lab-card h3 {
-            font-size: 2rem; text-transform: uppercase;
-            margin-top: 0; border-bottom: 4px solid var(--eu-blue);
-            display: inline-block;
-        }
-
-        .card-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-
-        /* --- Specifieke Secties --- */
-        .api-section { border-color: #f39c12; }
-        .clean-section { border-color: #2ecc71; }
-        .tableau-section { border-color: #9b59b6; }
-        .iiif-section { border-color: var(--eu-blue); }
-
-        /* --- Dashboard Embed Area --- */
-        .viz-showcase {
-            background: var(--eu-grey);
-            margin: 100px 0; padding: 60px 20px;
+        .section-title {
             text-align: center;
+            margin-bottom: 60px;
         }
-        .dashboard-placeholder {
-            max-width: 1000px; margin: 0 auto;
-            aspect-ratio: 16/9; background: #eee;
-            border: 2px dashed #ccc; display: flex;
-            align-items: center; justify-content: center;
+        .section-title h2 { font-size: 2.5rem; color: var(--eu-dark); }
+        .section-title p { color: var(--text-muted); margin-top: 10px; }
+
+        /* --- TECH STACK GRID --- */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
         }
 
-        /* --- Footer & GitHub --- */
-        .github-banner {
-            background: #000; color: #fff;
-            padding: 80px 40px; text-align: center;
+        .tech-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
         }
-        .btn-github {
-            display: inline-block; padding: 20px 40px;
-            background: #fff; color: #000;
-            text-decoration: none; font-weight: 900;
-            text-transform: uppercase; margin-top: 20px;
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--eu-primary);
+        }
+
+        .icon-box {
+            width: 60px; height: 60px;
+            background: var(--eu-light);
+            color: var(--eu-primary);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .tech-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .tech-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
+        .tech-link { font-weight: 700; color: var(--eu-primary); display: flex; align-items: center; gap: 5px; margin-top: auto; }
+
+        /* --- FEATURE: IIIF VIEWER --- */
+        .feature-section {
+            background: var(--eu-dark);
+            color: white;
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Abstracte cirkel achtergrond */
+        .feature-section::after {
+            content: ""; position: absolute;
+            width: 400px; height: 400px;
+            background: rgba(0, 128, 255, 0.2);
+            border-radius: 50%;
+            top: -100px; right: -100px;
+            filter: blur(60px);
+        }
+
+        .feature-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .feature-content p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 30px; }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--eu-primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
             transition: 0.3s;
+            border: 1px solid transparent;
         }
-        .btn-github:hover { background: var(--eu-cyan); transform: scale(1.1); }
+        .btn-primary:hover { background: #0066cc; transform: scale(1.05); }
 
-        @media (max-width: 850px) {
-            .lab-grid { grid-template-columns: 1fr; }
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+        .feature-visual {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            aspect-ratio: 16/9;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .footer-links a:hover { color: var(--eu-primary); }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .feature-section { grid-template-columns: 1fr; padding: 40px; text-align: center; }
+            .feature-section::after { display: none; }
+            .feature-content div { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="https://www.europeana.eu/nl" target="_blank" class="eu-logo-link">
-            <img src="https://pro.europeana.eu/assets/img/europeana-logo.svg" alt="Europeana Logo">
-        </a>
-        <h1>Teapot Lab</h1>
-        <p class="project-intro">
-            Een data-gedreven ontdekkingsreis door de keramiekcollecties van Europeana. 
-            Van brute API-extractie tot verfijnde IIIF-visualisaties.
+        <div class="eu-badge">
+            <span class="mono">DATA LAB PROJECT</span>
+        </div>
+        <h1>Europeana<br><span class="text-blue">Teapot Collection</span></h1>
+        <p class="intro-text">
+            Een computationele analyse van Europees keramiek erfgoed. 
+            Van API-harvesting tot IIIF visualisatie.
         </p>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-num mono">3,000+</span>
+                <span class="stat-label">Objecten</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num mono">JSON/CSV</span>
+                <span class="stat-label">Data Formats</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num mono">IIIF</span>
+                <span class="stat-label">Compliant</span>
+            </div>
+        </div>
     </header>
 
-    <section class="call-to-action">
-        <h2>Ontdek de theepotten collectie van Europeana →</h2>
-    </section>
-
-    <main class="lab-grid">
+    <div class="container">
         
-        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Scripts" class="lab-card api-section">
-            <span class="card-icon">⚙️</span>
-            <h3>API Scripting</h3>
-            <p>Python-powered extractie. We 'scrapen' de Europeana API om duizenden theepot-records en hun metadata te oogsten voor analyse.</p>
-        </a>
-
-        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Data" class="lab-card clean-section">
-            <span class="card-icon">🧼</span>
-            <h3>Data Cleaning</h3>
-            <p>Ruwe data is zelden perfect. Met OpenRefine hebben we de metadata gestandaardiseerd, datums gefixed en geografische tags opgeschoond.</p>
-        </a>
-
-        <a href="#viz" class="lab-card tableau-section">
-            <span class="card-icon">📊</span>
-            <h3>Tableau Analytics</h3>
-            <p>Interactieve dashboards die trends in vorm, tijd en herkomst visualiseren. De theepot als datapunt in de kunstgeschiedenis.</p>
-        </a>
-
-        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Viewer" class="lab-card iiif-section">
-            <span class="card-icon">🔍</span>
-            <h3>IIIF Viewer</h3>
-            <p>Ervaar de collectie in ultra-hoge resolutie. Onze viewer maakt gebruik van IIIF-manifesten voor een naadloze zoom-ervaring.</p>
-        </a>
-
-    </main>
-
-    <section class="viz-showcase" id="viz">
-        <h2>Interactief Dashboard</h2>
-        <div class="dashboard-placeholder">
-            <p>Tableau Dashboard Live Preview</p>
+        <div class="section-title">
+            <h2>Workflow & Resultaten</h2>
+            <p>De technische stappen van data-extractie tot eindproduct.</p>
         </div>
-    </section>
 
-    <section class="github-banner">
-        <h2>Open Source & Gedocumenteerd</h2>
-        <p>Alle scripts, PDF-verslagen en data-sets zijn volledig raadpleegbaar op mijn GitHub repository.</p>
-        <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" class="btn-github">Bekijk op GitHub</a>
-    </section>
+        <div class="tech-grid">
+            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Scripts" target="_blank" class="tech-card">
+                <div class="icon-box">⚙️</div>
+                <h3>API Harvesting</h3>
+                <p>Python scripts om de Europeana REST API te bevragen. Automatische extractie van metadata, licenties en afbeeldings-URL's.</p>
+                <div class="tech-link mono">BEKIJK SCRIPTS →</div>
+            </a>
 
-    <footer style="padding: 40px; text-align: center; font-family: monospace;">
-        JENSKE VERHAMME // 2026 // BUILT WITH ❤️ FOR HERITAGE DATA
+            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Data" target="_blank" class="tech-card">
+                <div class="icon-box">🧼</div>
+                <h3>Data Cleaning</h3>
+                <p>Normalisatie van inconsistente metadata met OpenRefine. Van ruwe JSON dump naar gestructureerde, schone datasets.</p>
+                <div class="tech-link mono">BEKIJK DATASETS →</div>
+            </a>
+
+            <a href="#tableau" class="tech-card">
+                <div class="icon-box">📊</div>
+                <h3>Visualisatie</h3>
+                <p>Interactieve dashboards in Tableau die patronen onthullen in tijd, geografie en materiaalgebruik van de theepotten.</p>
+                <div class="tech-link mono">BEKIJK DASHBOARD →</div>
+            </a>
+        </div>
+
+        <section class="feature-section">
+            <div class="feature-content">
+                <span class="mono" style="color: var(--eu-primary);">PROJECT HIGHLIGHT</span>
+                <h2>Custom IIIF Viewer</h2>
+                <p>
+                    Een op maat gemaakte viewer die gebruik maakt van het 
+                    <em>International Image Interoperability Framework</em>. 
+                    Hiermee kunnen gebruikers diep inzoomen op de texturen van het keramiek zonder kwaliteitsverlies.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots/tree/main/Viewer" target="_blank" class="btn-primary">
+                        Naar de Viewer
+                    </a>
+                    <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" target="_blank" class="btn-secondary">
+                        GitHub Repo
+                    </a>
+                </div>
+            </div>
+            <div class="feature-visual">
+                <div style="text-align: center; color: rgba(255,255,255,0.5);">
+                    <span style="font-size: 3rem;">🔍</span>
+                    <p class="mono" style="margin-top: 10px;">Deep Zoom Interactive</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div style="margin-bottom: 20px;">
+            <img src="https://pro.europeana.eu/assets/img/europeana-logo.svg" alt="Europeana" style="width: 100px; opacity: 0.5; filter: grayscale(100%);">
+        </div>
+        <div class="footer-links">
+            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" target="_blank">GitHub Repository</a>
+            <a href="mailto:jouwemail@student.be">Contact</a>
+        </div>
+        <p class="mono" style="font-size: 0.8rem; color: #cbd5e1; margin-top: 30px;">
+            Jenske Verhamme © 2026 // 
+        </p>
     </footer>
 
 </body>
