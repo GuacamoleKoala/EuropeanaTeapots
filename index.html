@@ -48,7 +48,6 @@
             border-bottom: 1px solid rgba(0,128,255,0.1);
         }
 
-        /* Achtergrond decoratie */
         header::before {
             content: "";
             position: absolute;
@@ -162,6 +161,29 @@
         .tech-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; flex-grow: 1; }
         .tech-link { font-weight: 700; color: var(--eu-primary); display: flex; align-items: center; gap: 5px; margin-top: auto; }
 
+        /* --- DASHBOARD SECTION --- */
+        .dashboard-container {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .tableau-placeholder {
+            width: 100%;
+            min-height: 600px;
+            background: #f1f5f9;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #cbd5e1;
+            margin-top: 30px;
+        }
+
         /* --- FEATURE: IIIF VIEWER --- */
         .feature-section {
             background: var(--eu-dark);
@@ -177,7 +199,6 @@
             box-shadow: var(--shadow-lg);
         }
 
-        /* Abstracte cirkel achtergrond */
         .feature-section::after {
             content: ""; position: absolute;
             width: 400px; height: 400px;
@@ -227,7 +248,6 @@
             z-index: 1;
         }
 
-        /* --- NEW: DOCUMENTATION & COLLECTION BAR --- */
         .extra-links {
             margin-top: 60px;
             display: flex;
@@ -279,7 +299,6 @@
         }
         .eu-logo-link:hover { transform: scale(1.05); }
 
-        /* Mobile Adjustments */
         @media (max-width: 900px) {
             .feature-section { grid-template-columns: 1fr; padding: 40px; text-align: center; }
             .feature-section::after { display: none; }
@@ -341,9 +360,26 @@
                 <div class="icon-box">📊</div>
                 <h3>Visualisatie</h3>
                 <p>Interactieve dashboards in Tableau die patronen onthullen in tijd, geografie en materiaalgebruik van de theepotten.</p>
-                <div class="tech-link mono">BEKIJK DASHBOARD →</div>
+                <div class="tech-link mono">BEKIJK DASHBOARD ↓</div>
             </a>
         </div>
+
+        <section id="tableau" class="dashboard-container">
+            <div class="section-title" style="margin-bottom: 20px;">
+                <span class="mono text-blue">DATA ANALYTICS</span>
+                <h2 style="font-size: 2rem; margin-top: 10px;">Tableau Dashboard</h2>
+            </div>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                Verken de collectie via geografische kaarten en tijdlijnen. Dit dashboard correleert object-metadata met historische context.
+            </p>
+            
+            <div class="tableau-placeholder">
+                <div style="text-align: center; color: #94a3b8;">
+                    <span style="font-size: 3rem;">📊</span>
+                    <p class="mono">Tableau Interactive Embed Area</p>
+                </div>
+            </div>
+        </section>
 
         <section class="feature-section">
             <div class="feature-content">
@@ -393,7 +429,7 @@
         </div>
         
         <p class="mono" style="font-size: 0.8rem; color: #cbd5e1; margin-top: 30px;">
-            Jenske Verhamme © 2026 // Gebouwd voor thee
+            Jenske Verhamme © 2026 // Gebouwd met thee
         </p>
     </footer>
 
