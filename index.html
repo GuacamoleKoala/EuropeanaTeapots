@@ -227,10 +227,39 @@
             z-index: 1;
         }
 
+        /* --- NEW: DOCUMENTATION & COLLECTION BAR --- */
+        .extra-links {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--eu-dark);
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .info-pill:hover {
+            border-color: var(--eu-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
         /* --- FOOTER --- */
         footer {
             background: var(--white);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             border-top: 1px solid #e2e8f0;
         }
@@ -242,6 +271,13 @@
             transition: 0.2s;
         }
         .footer-links a:hover { color: var(--eu-primary); }
+
+        .eu-logo-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        .eu-logo-link:hover { transform: scale(1.05); }
 
         /* Mobile Adjustments */
         @media (max-width: 900px) {
@@ -335,18 +371,29 @@
             </div>
         </section>
 
+        <div class="extra-links">
+            <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" target="_blank" class="info-pill">
+                <span>📄</span> Volledige Documentatie
+            </a>
+            <a href="https://www.europeana.eu/nl/search?query=teapot&view=grid" target="_blank" class="info-pill">
+                <span>☕</span> Broncollectie op Europeana
+            </a>
+        </div>
+
     </div>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <img src="https://pro.europeana.eu/assets/img/europeana-logo.svg" alt="Europeana" style="width: 100px; opacity: 0.5; filter: grayscale(100%);">
-        </div>
+        <a href="https://www.europeana.eu/nl" target="_blank" class="eu-logo-link">
+            <img src="https://pro.europeana.eu/assets/img/europeana-logo.svg" alt="Europeana Logo" style="width: 150px;">
+        </a>
+        
         <div class="footer-links">
             <a href="https://github.com/GuacamoleKoala/EuropeanaTeapots" target="_blank">GitHub Repository</a>
             <a href="mailto:jouwemail@student.be">Contact</a>
         </div>
+        
         <p class="mono" style="font-size: 0.8rem; color: #cbd5e1; margin-top: 30px;">
-            Jenske Verhamme © 2026 // 
+            Jenske Verhamme © 2026 // Gebouwd voor thee
         </p>
     </footer>
 
